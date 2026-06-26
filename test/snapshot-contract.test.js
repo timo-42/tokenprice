@@ -69,3 +69,19 @@ test("FX snapshot supports USD default and non-USD frontend conversion", async (
   assert.ok(Math.abs(convertUsd(prices.prices[0].usdUnitPrice, "EUR", fx) - 2.3) < 0.000001);
   assert.throws(() => convertUsd(1, "ZZZ", fx), /Missing FX rate/);
 });
+
+test("committed latest snapshot points at matching production snapshots", async () => {
+  const dataDir = path.resolve("data");
+  const latest = JSON.parse(await readFile(path.join(dataDir, "latest.json"), "utf8"));
+  const prices = JSON.parse(await readFile(path.join(dataDir, latest.prices.file), "utf8"));
+  const fx = JSON.parse(await readFile(path.join(dataDir, latest.fx.file), "utf8"));
+
+  assert.equal(latest.schemaVersion, 1);
+  assert.equal(prices.schemaVersion, 1);
+  assert.equal(fx.schemaVersion, 1);
+  assert.equal(latest.prices.count, prices.prices.length);
+  assert.equal(latest.pricingDate, prices.pricingDate);
+  assert.equal(latest.fx.date, fx.date);
+  assert.equal(latest.fx.base, fx.base);
+  assert.equal(latest.fx.stale, fx.stale);
+});

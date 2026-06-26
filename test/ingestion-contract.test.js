@@ -132,3 +132,16 @@ test(
     });
   }
 );
+
+test(
+  "normalizeFxPayload rejects non-USD rate bases",
+  { skip: ingestionModule ? false : skipMissingIngestion },
+  async () => {
+    assert.equal(typeof ingestionModule.normalizeFxPayload, "function");
+
+    assert.throws(
+      () => ingestionModule.normalizeFxPayload({ base: "EUR", date: "2026-06-26", rates: { USD: 1.1 } }),
+      /base must be USD/
+    );
+  }
+);
