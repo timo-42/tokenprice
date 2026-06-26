@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-26T00:00:00.000Z",
+  "pricingDate": "2026-06-26",
+  "currencyCode": "USD",
+  "source": {
+    "name": "Azure Retail Prices API",
+    "url": "https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview"
+  },
+  "prices": [
+    {
+      "modelFamily": "Azure AI Foundry GPT-4o",
+      "modelName": "gpt-4o Input",
+      "region": "eastus",
+      "location": "US East",
+      "meterName": "Input Tokens",
+      "unitOfMeasure": "1M Tokens",
+      "currencyCode": "USD",
+      "usdUnitPrice": 2.5,
+      "usdPer1KTokens": 0.0025,
+      "source": {
+        "meterId": "token-meter-input",
+        "serviceName": "Azure AI Foundry",
+        "productName": "Azure AI Foundry GPT-4o",
+        "skuName": "gpt-4o Input",
+        "armRegionName": "eastus",
+        "priceType": "Consumption"
+      }
+    },
+    {
+      "modelFamily": "Azure AI Foundry GPT-4o",
+      "modelName": "gpt-4o Output",
+      "region": "eastus",
+      "location": "US East",
+      "meterName": "Output Tokens",
+      "unitOfMeasure": "1M Tokens",
+      "currencyCode": "USD",
+      "usdUnitPrice": 10,
+      "usdPer1KTokens": 0.01,
+      "source": {
+        "meterId": "token-meter-output",
+        "serviceName": "Azure AI Foundry",
+        "productName": "Azure AI Foundry GPT-4o",
+        "skuName": "gpt-4o Output",
+        "armRegionName": "eastus",
+        "priceType": "Consumption"
+      }
+    }
+  ]
+}

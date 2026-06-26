@@ -1,0 +1,17 @@
+{
+  "name": "azure-foundry-token-prices-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Azure AI Foundry token price snapshots and dashboard.",
+  "type": "module",
+  "scripts": {
+    "ingest": "node scripts/ingest.js",
+    "test": "node --test",
+    "test:contracts": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
