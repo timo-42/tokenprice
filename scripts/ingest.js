@@ -471,6 +471,11 @@ function normalizeFxPayload(payload, options = {}) {
     throw new Error('Invalid Frankfurter payload');
   }
 
+  const base = compactText(payload.base || 'USD').toUpperCase();
+  if (base !== 'USD') {
+    throw new Error(`Frankfurter FX base must be USD, got ${base || 'unknown'}`);
+  }
+
   const rates = Object.assign({}, payload.rates || {});
   rates.USD = 1;
 
@@ -485,7 +490,7 @@ function normalizeFxPayload(payload, options = {}) {
     schemaVersion: 1,
     generatedAt: (options.now || new Date()).toISOString(),
     date: compactText(payload.date) || options.date || utcDateString(options.now || new Date()),
-    base: compactText(payload.base || 'USD').toUpperCase(),
+    base,
     stale: false,
     source: {
       name: 'Frankfurter',
