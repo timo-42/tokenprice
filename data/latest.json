@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-26T21:54:13.396Z",
+  "pricingDate": "2026-06-26",
+  "prices": {
+    "file": "prices-2026-06-26.json",
+    "count": 23283
+  },
+  "fx": {
+    "file": "fx-2026-06-26.json",
+    "date": "2026-06-26",
+    "base": "USD",
+    "stale": false
+  },
+  "priceSnapshot": "prices-2026-06-26.json",
+  "priceSnapshotPath": "data/prices-2026-06-26.json",
+  "fxDate": "2026-06-26",
+  "fxSnapshot": "fx-2026-06-26.json",
+  "fxSnapshotPath": "data/fx-2026-06-26.json",
+  "fxStale": false,
+  "counts": {
+    "prices": 23283,
+    "pricePagesScanned": 986,
+    "priceSourceRowsScanned": 985641,
+    "currencies": 30
+  },
+  "sources": {
+    "prices": {
+      "name": "Azure Retail Prices API",
+      "url": "https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview",
+      "apiVersion": "2023-01-01-preview"
+    },
+    "fx": {
+      "name": "Frankfurter",
+      "url": "https://api.frankfurter.app/latest?from=USD"
+    }
+  }
+}

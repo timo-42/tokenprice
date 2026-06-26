@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Foundry Token Prices</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Azure AI Foundry</p>
+        <h1>Token Prices Dashboard</h1>
+      </div>
+      <div class="controls" aria-label="Display controls">
+        <label for="currency">Currency</label>
+        <select id="currency" disabled>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section class="status-panel" aria-live="polite">
+        <div>
+          <span class="label">Pricing date</span>
+          <strong id="price-date">Loading...</strong>
+        </div>
+        <div>
+          <span class="label">FX date</span>
+          <strong id="fx-date">Loading...</strong>
+        </div>
+        <div>
+          <span class="label">Rows</span>
+          <strong id="row-count">0</strong>
+        </div>
+      </section>
+
+      <p id="notice" class="notice" hidden></p>
+
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="table-heading">
+          <h2 id="table-title">Worldwide Prices</h2>
+          <p id="conversion-note">Prices are shown in USD.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Region</th>
+                <th scope="col">Direction</th>
+                <th scope="col">Unit</th>
+                <th scope="col">USD price</th>
+                <th scope="col" id="selected-price-heading">Selected price</th>
+              </tr>
+            </thead>
+            <tbody id="price-rows">
+              <tr>
+                <td colspan="6" class="empty">Loading price snapshots...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
