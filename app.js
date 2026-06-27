@@ -5,33 +5,73 @@
   var MAX_FX_AGE_DAYS = 2;
 
   var state = {
-    rows: [],
+    allRows: [],
+    filteredRows: [],
     fxRates: { USD: 1 },
     fxDate: null,
     priceDate: null,
     fxUnavailable: false,
     fxStale: false,
-    selectedCurrency: "USD"
+    selectedCurrency: "USD",
+    filters: {
+      search: "",
+      model: "",
+      region: "",
+      direction: ""
+    }
   };
 
+  var doc = typeof document === "undefined" ? null : document;
   var elements = {
-    currency: document.getElementById("currency"),
-    priceDate: document.getElementById("price-date"),
-    fxDate: document.getElementById("fx-date"),
-    rowCount: document.getElementById("row-count"),
-    notice: document.getElementById("notice"),
-    rows: document.getElementById("price-rows"),
-    conversionNote: document.getElementById("conversion-note"),
-    selectedHeading: document.getElementById("selected-price-heading")
+    currency: doc && doc.getElementById("currency"),
+    priceDate: doc && doc.getElementById("price-date"),
+    fxDate: doc && doc.getElementById("fx-date"),
+    rowCount: doc && doc.getElementById("row-count"),
+    notice: doc && doc.getElementById("notice"),
+    rows: doc && doc.getElementById("price-rows"),
+    conversionNote: doc && doc.getElementById("conversion-note"),
+    selectedHeading: doc && doc.getElementById("selected-price-heading"),
+    search: doc && doc.getElementById("filter-search"),
+    model: doc && doc.getElementById("filter-model"),
+    region: doc && doc.getElementById("filter-region"),
+    direction: doc && doc.getElementById("filter-direction"),
+    clearFilters: doc && doc.getElementById("clear-filters")
   };
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (doc) {
+    doc.addEventListener("DOMContentLoaded", init);
+  }
 
   function init() {
     elements.currency.addEventListener("change", function (event) {
       state.selectedCurrency = event.target.value || "USD";
       renderRows();
       renderMetadata();
+    });
+
+    elements.search.addEventListener("input", function (event) {
+      state.filters.search = event.target.value || "";
+      applyFiltersAndRender();
+    });
+
+    elements.model.addEventListener("change", function (event) {
+      state.filters.model = event.target.value || "";
+      applyFiltersAndRender();
+    });
+
+    elements.region.addEventListener("change", function (event) {
+      state.filters.region = event.target.value || "";
+      applyFiltersAndRender();
+    });
+
+    elements.direction.addEventListener("change", function (event) {
+      state.filters.direction = event.target.value || "";
+      applyFiltersAndRender();
+    });
+
+    elements.clearFilters.addEventListener("click", function () {
+      resetFilters();
+      applyFiltersAndRender();
     });
 
     loadSnapshots().catch(function (error) {
@@ -44,7 +84,8 @@
     var prices = await loadPriceSnapshot(latest);
     var fx = await loadFxSnapshot(latest);
 
-    state.rows = normalizeRows(prices);
+    state.allRows = normalizeRows(prices);
+    state.filteredRows = filterRows(state.allRows, state.filters);
     state.priceDate = firstValue(
       latest.pricingDate,
       latest.priceDate,
@@ -58,6 +99,7 @@
 
     applyFxSnapshot(latest, fx);
     populateCurrencies();
+    populateFilters();
     renderRows();
     renderMetadata();
   }
@@ -221,26 +263,83 @@
     elements.currency.disabled = currencies.length < 2;
   }
 
+  function populateFilters() {
+    populateFilterSelect(elements.model, getUniqueFilterOptions(state.allRows, "model"), "All models");
+    populateFilterSelect(elements.region, getUniqueFilterOptions(state.allRows, "region"), "All regions");
+    populateFilterSelect(elements.direction, getUniqueFilterOptions(state.allRows, "direction"), "All directions");
+    updateFilterControls();
+  }
+
+  function populateFilterSelect(select, options, allLabel) {
+    select.innerHTML = "";
+    appendOption(select, "", allLabel);
+
+    options.forEach(function (value) {
+      appendOption(select, value, value);
+    });
+
+    select.disabled = options.length === 0;
+  }
+
+  function appendOption(select, value, label) {
+    var option = doc.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    select.appendChild(option);
+  }
+
+  function applyFiltersAndRender() {
+    state.filteredRows = filterRows(state.allRows, state.filters);
+    updateFilterControls();
+    renderRows();
+    renderMetadata();
+  }
+
+  function resetFilters() {
+    state.filters = {
+      search: "",
+      model: "",
+      region: "",
+      direction: ""
+    };
+    elements.search.value = "";
+    elements.model.value = "";
+    elements.region.value = "";
+    elements.direction.value = "";
+  }
+
+  function updateFilterControls() {
+    var hasFilters = Boolean(
+      state.filters.search ||
+      state.filters.model ||
+      state.filters.region ||
+      state.filters.direction
+    );
+    elements.clearFilters.disabled = !hasFilters;
+  }
+
   function renderRows() {
     var currency = state.selectedCurrency;
     var rate = state.fxRates[currency] || 1;
-    var fragment = document.createDocumentFragment();
+    var fragment = doc.createDocumentFragment();
 
     elements.rows.innerHTML = "";
 
-    if (!state.rows.length) {
-      var emptyRow = document.createElement("tr");
-      var emptyCell = document.createElement("td");
+    if (!state.filteredRows.length) {
+      var emptyRow = doc.createElement("tr");
+      var emptyCell = doc.createElement("td");
       emptyCell.colSpan = 6;
       emptyCell.className = "empty";
-      emptyCell.textContent = "No price rows were found in the current snapshot.";
+      emptyCell.textContent = state.allRows.length
+        ? "No price rows match the current filters."
+        : "No price rows were found in the current snapshot.";
       emptyRow.appendChild(emptyCell);
       elements.rows.appendChild(emptyRow);
       return;
     }
 
-    state.rows.forEach(function (row) {
-      var tr = document.createElement("tr");
+    state.filteredRows.forEach(function (row) {
+      var tr = doc.createElement("tr");
       appendCell(tr, row.model);
       appendCell(tr, row.region);
       appendCell(tr, row.direction);
@@ -258,7 +357,7 @@
 
     elements.priceDate.textContent = formatDateLabel(state.priceDate);
     elements.fxDate.textContent = state.fxUnavailable ? "Unavailable" : formatDateLabel(state.fxDate);
-    elements.rowCount.textContent = String(state.rows.length);
+    elements.rowCount.textContent = formatRowCount(state.filteredRows.length, state.allRows.length);
     elements.selectedHeading.textContent = currency + " price";
 
     if (currency === "USD") {
@@ -297,6 +396,11 @@
     elements.fxDate.textContent = "Unavailable";
     elements.rowCount.textContent = "0";
     elements.currency.disabled = true;
+    elements.search.disabled = true;
+    elements.model.disabled = true;
+    elements.region.disabled = true;
+    elements.direction.disabled = true;
+    elements.clearFilters.disabled = true;
     elements.notice.hidden = false;
     elements.notice.className = "notice error";
     elements.notice.textContent = error.message || "Price data could not be loaded.";
@@ -304,7 +408,7 @@
   }
 
   function appendCell(row, value, className) {
-    var cell = document.createElement("td");
+    var cell = doc.createElement("td");
     cell.textContent = value == null || value === "" ? "Unknown" : String(value);
     if (className) {
       cell.className = className;
@@ -375,6 +479,64 @@
     return ageDays > MAX_FX_AGE_DAYS;
   }
 
+  function filterRows(rows, filters) {
+    var normalizedFilters = normalizeFilters(filters);
+    var query = normalizedFilters.search;
+
+    return rows.filter(function (row) {
+      if (normalizedFilters.model && row.model !== normalizedFilters.model) {
+        return false;
+      }
+      if (normalizedFilters.region && row.region !== normalizedFilters.region) {
+        return false;
+      }
+      if (normalizedFilters.direction && row.direction !== normalizedFilters.direction) {
+        return false;
+      }
+      if (!query) {
+        return true;
+      }
+
+      return [
+        row.model,
+        row.region,
+        row.direction,
+        row.unit
+      ].some(function (value) {
+        return String(value || "").toLowerCase().indexOf(query) !== -1;
+      });
+    });
+  }
+
+  function normalizeFilters(filters) {
+    filters = filters || {};
+    return {
+      search: String(filters.search || "").trim().toLowerCase(),
+      model: String(filters.model || ""),
+      region: String(filters.region || ""),
+      direction: String(filters.direction || "")
+    };
+  }
+
+  function getUniqueFilterOptions(rows, field) {
+    var seen = Object.create(null);
+    rows.forEach(function (row) {
+      var value = row[field];
+      if (value !== undefined && value !== null && value !== "") {
+        seen[String(value)] = true;
+      }
+    });
+
+    return Object.keys(seen).sort(compareText);
+  }
+
+  function formatRowCount(filteredCount, totalCount) {
+    if (filteredCount === totalCount) {
+      return String(totalCount);
+    }
+    return filteredCount + " / " + totalCount;
+  }
+
   function firstArray() {
     for (var i = 0; i < arguments.length; i += 1) {
       if (Array.isArray(arguments[i])) {
@@ -428,5 +590,13 @@
 
   function compareText(a, b) {
     return String(a).localeCompare(String(b), undefined, { sensitivity: "base" });
+  }
+
+  if (typeof globalThis !== "undefined") {
+    globalThis.AzureTokenPricesDashboard = {
+      filterRows: filterRows,
+      getUniqueFilterOptions: getUniqueFilterOptions,
+      formatRowCount: formatRowCount
+    };
   }
 })();
