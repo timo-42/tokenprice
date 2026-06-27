@@ -2,7 +2,7 @@ name: Update data snapshots
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:

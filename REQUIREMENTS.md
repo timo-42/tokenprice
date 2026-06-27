@@ -13,7 +13,7 @@ Build a GitHub Pages site that displays worldwide Azure AI Foundry token prices 
 ## Functional Requirements
 
 ### 1) Data Ingestion (Automated, Daily)
-- A scheduled workflow must run at **00:00 UTC daily**.
+- A scheduled workflow must run daily at **03:17 UTC** to avoid API rate-limit pressure around midnight UTC.
 - It must:
   - Download Azure Retail Prices records via OData endpoint:
     - `https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview`
