@@ -17,8 +17,11 @@
       search: "",
       model: "",
       region: "",
-      direction: ""
-    }
+      direction: "",
+      capability: ""
+    },
+    capabilityCatalog: null,
+    capabilityLabels: {}
   };
 
   var doc = typeof document === "undefined" ? null : document;
@@ -35,6 +38,7 @@
     model: doc && doc.getElementById("filter-model"),
     region: doc && doc.getElementById("filter-region"),
     direction: doc && doc.getElementById("filter-direction"),
+    capability: doc && doc.getElementById("filter-capability"),
     clearFilters: doc && doc.getElementById("clear-filters")
   };
 
@@ -69,6 +73,11 @@
       applyFiltersAndRender();
     });
 
+    elements.capability.addEventListener("change", function (event) {
+      state.filters.capability = event.target.value || "";
+      applyFiltersAndRender();
+    });
+
     elements.clearFilters.addEventListener("click", function () {
       resetFilters();
       applyFiltersAndRender();
@@ -83,8 +92,11 @@
     var latest = await fetchJson(resolveDataPath("latest.json"));
     var prices = await loadPriceSnapshot(latest);
     var fx = await loadFxSnapshot(latest);
+    var capabilities = await loadCapabilityCatalog();
 
-    state.allRows = normalizeRows(prices);
+    state.capabilityCatalog = capabilities;
+    state.capabilityLabels = buildCapabilityLabels(capabilities);
+    state.allRows = enrichRows(normalizeRows(prices), capabilities);
     state.filteredRows = filterRows(state.allRows, state.filters);
     state.priceDate = firstValue(
       latest.pricingDate,
@@ -150,6 +162,15 @@
       return await fetchJson(resolveDataPath(path));
     } catch (error) {
       console.warn("FX snapshot could not be loaded:", error);
+      return null;
+    }
+  }
+
+  async function loadCapabilityCatalog() {
+    try {
+      return await fetchJson(resolveDataPath("model-capabilities.json"));
+    } catch (error) {
+      console.warn("Model capability catalog could not be loaded:", error);
       return null;
     }
   }
@@ -231,7 +252,20 @@
         direction: normalizeDirection(firstValue(row.direction, row.tokenDirection, row.meterName, row.meter, row.skuName, "Token")),
         unit: firstValue(row.unit, row.unitOfMeasure, row.unitMeasure, row.uom, "unit"),
         usdPrice: Number.isFinite(normalizedPrice) ? normalizedPrice : unitPrice,
-        sourceUsdPrice: unitPrice
+        sourceUsdPrice: unitPrice,
+        capabilities: [],
+        capabilityLabels: [],
+        modelKeys: buildModelKeys(
+          row.model,
+          row.modelName,
+          row.modelFamily,
+          row.productName,
+          row.armSkuName,
+          row.skuName,
+          row.meterName,
+          row.source && row.source.productName,
+          row.source && row.source.skuName
+        )
       };
     }).filter(function (row) {
       return Number.isFinite(row.usdPrice);
@@ -267,7 +301,20 @@
     populateFilterSelect(elements.model, getUniqueFilterOptions(state.allRows, "model"), "All models");
     populateFilterSelect(elements.region, getUniqueFilterOptions(state.allRows, "region"), "All regions");
     populateFilterSelect(elements.direction, getUniqueFilterOptions(state.allRows, "direction"), "All directions");
+    populateCapabilityFilter();
     updateFilterControls();
+  }
+
+  function populateCapabilityFilter() {
+    elements.capability.innerHTML = "";
+    appendOption(elements.capability, "", "All capabilities");
+
+    var options = getCapabilityOptions(state.allRows, state.capabilityLabels);
+    options.forEach(function (option) {
+      appendOption(elements.capability, option.id, option.label);
+    });
+
+    elements.capability.disabled = options.length === 0;
   }
 
   function populateFilterSelect(select, options, allLabel) {
@@ -300,12 +347,14 @@
       search: "",
       model: "",
       region: "",
-      direction: ""
+      direction: "",
+      capability: ""
     };
     elements.search.value = "";
     elements.model.value = "";
     elements.region.value = "";
     elements.direction.value = "";
+    elements.capability.value = "";
   }
 
   function updateFilterControls() {
@@ -313,7 +362,8 @@
       state.filters.search ||
       state.filters.model ||
       state.filters.region ||
-      state.filters.direction
+      state.filters.direction ||
+      state.filters.capability
     );
     elements.clearFilters.disabled = !hasFilters;
   }
@@ -328,7 +378,7 @@
     if (!state.filteredRows.length) {
       var emptyRow = doc.createElement("tr");
       var emptyCell = doc.createElement("td");
-      emptyCell.colSpan = 6;
+      emptyCell.colSpan = 7;
       emptyCell.className = "empty";
       emptyCell.textContent = state.allRows.length
         ? "No price rows match the current filters."
@@ -343,6 +393,7 @@
       appendCell(tr, row.model);
       appendCell(tr, row.region);
       appendCell(tr, row.direction);
+      appendCapabilityCell(tr, row.capabilityLabels);
       appendCell(tr, row.unit);
       appendCell(tr, formatCurrency(row.usdPrice, "USD"), "numeric");
       appendCell(tr, formatCurrency(row.usdPrice * rate, currency), "numeric");
@@ -400,11 +451,12 @@
     elements.model.disabled = true;
     elements.region.disabled = true;
     elements.direction.disabled = true;
+    elements.capability.disabled = true;
     elements.clearFilters.disabled = true;
     elements.notice.hidden = false;
     elements.notice.className = "notice error";
     elements.notice.textContent = error.message || "Price data could not be loaded.";
-    elements.rows.innerHTML = '<tr><td colspan="6" class="empty">Unable to load price snapshots.</td></tr>';
+    elements.rows.innerHTML = '<tr><td colspan="7" class="empty">Unable to load price snapshots.</td></tr>';
   }
 
   function appendCell(row, value, className) {
@@ -413,6 +465,27 @@
     if (className) {
       cell.className = className;
     }
+    row.appendChild(cell);
+  }
+
+  function appendCapabilityCell(row, labels) {
+    var cell = doc.createElement("td");
+    if (!labels || !labels.length) {
+      cell.className = "muted";
+      cell.textContent = "Unknown";
+      row.appendChild(cell);
+      return;
+    }
+
+    var wrap = doc.createElement("div");
+    wrap.className = "capability-list";
+    labels.forEach(function (label) {
+      var badge = doc.createElement("span");
+      badge.className = "capability-badge";
+      badge.textContent = label;
+      wrap.appendChild(badge);
+    });
+    cell.appendChild(wrap);
     row.appendChild(cell);
   }
 
@@ -493,6 +566,9 @@
       if (normalizedFilters.direction && row.direction !== normalizedFilters.direction) {
         return false;
       }
+      if (normalizedFilters.capability && row.capabilities.indexOf(normalizedFilters.capability) === -1) {
+        return false;
+      }
       if (!query) {
         return true;
       }
@@ -501,7 +577,8 @@
         row.model,
         row.region,
         row.direction,
-        row.unit
+        row.unit,
+        row.capabilityLabels && row.capabilityLabels.join(" ")
       ].some(function (value) {
         return String(value || "").toLowerCase().indexOf(query) !== -1;
       });
@@ -514,8 +591,97 @@
       search: String(filters.search || "").trim().toLowerCase(),
       model: String(filters.model || ""),
       region: String(filters.region || ""),
-      direction: String(filters.direction || "")
+      direction: String(filters.direction || ""),
+      capability: String(filters.capability || "")
     };
+  }
+
+  function enrichRows(rows, catalog) {
+    if (!catalog || !catalog.models) {
+      return rows;
+    }
+
+    var labels = buildCapabilityLabels(catalog);
+    return rows.map(function (row) {
+      var capabilities = getCapabilitiesForRow(row, catalog);
+      return Object.assign({}, row, {
+        capabilities: capabilities,
+        capabilityLabels: capabilities.map(function (tag) {
+          return labels[tag] || tag;
+        })
+      });
+    });
+  }
+
+  function getCapabilitiesForRow(row, catalog) {
+    var found = Object.create(null);
+    var models = catalog && catalog.models ? catalog.models : {};
+    var keys = row.modelKeys || buildModelKeys(row.model);
+
+    keys.forEach(function (key) {
+      Object.keys(models).forEach(function (modelKey) {
+        if (!isModelKeyMatch(key, modelKey)) return;
+        (models[modelKey].capabilities || []).forEach(function (tag) {
+          found[tag] = true;
+        });
+      });
+    });
+
+    return Object.keys(found).sort();
+  }
+
+  function isModelKeyMatch(rowKey, catalogKey) {
+    if (!rowKey || !catalogKey) return false;
+    if (rowKey === catalogKey) return true;
+    if (rowKey.length >= 5 && catalogKey.endsWith(rowKey)) return true;
+    if (catalogKey.length >= 5 && rowKey.endsWith(catalogKey)) return true;
+    return false;
+  }
+
+  function buildCapabilityLabels(catalog) {
+    var labels = {};
+    (catalog && catalog.tags || []).forEach(function (tag) {
+      labels[tag.id] = tag.label || tag.id;
+    });
+    return labels;
+  }
+
+  function getCapabilityOptions(rows, labels) {
+    var seen = Object.create(null);
+    rows.forEach(function (row) {
+      (row.capabilities || []).forEach(function (capability) {
+        seen[capability] = labels[capability] || capability;
+      });
+    });
+
+    return Object.keys(seen).map(function (id) {
+      return { id: id, label: seen[id] };
+    }).sort(function (a, b) {
+      return compareText(a.label, b.label);
+    });
+  }
+
+  function buildModelKeys() {
+    var seen = Object.create(null);
+    for (var i = 0; i < arguments.length; i += 1) {
+      var key = normalizeModelKey(arguments[i]);
+      if (key) {
+        seen[key] = true;
+      }
+    }
+    return Object.keys(seen);
+  }
+
+  function normalizeModelKey(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/\bpreview\b/g, " ")
+      .replace(/\bga\b/g, " ")
+      .replace(/\bversion\s+\d+\b/g, " ")
+      .replace(/\b\d{4}-\d{2}-\d{2}\b/g, " ")
+      .replace(/\([^)]*\)/g, " ")
+      .replace(/[^a-z0-9]+/g, "")
+      .trim();
   }
 
   function getUniqueFilterOptions(rows, field) {
@@ -596,7 +762,11 @@
     globalThis.AzureTokenPricesDashboard = {
       filterRows: filterRows,
       getUniqueFilterOptions: getUniqueFilterOptions,
-      formatRowCount: formatRowCount
+      formatRowCount: formatRowCount,
+      enrichRows: enrichRows,
+      getCapabilitiesForRow: getCapabilitiesForRow,
+      getCapabilityOptions: getCapabilityOptions,
+      normalizeModelKey: normalizeModelKey
     };
   }
 })();

@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "ingest": "node scripts/ingest.js",
+    "update:capabilities": "node scripts/update-capabilities.js",
     "test": "node --test",
     "test:contracts": "node --test test/*.test.js"
   },
