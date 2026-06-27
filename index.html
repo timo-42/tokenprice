@@ -66,6 +66,12 @@
               <option value="">All directions</option>
             </select>
           </div>
+          <div class="filter-field">
+            <label for="filter-capability">Capability</label>
+            <select id="filter-capability" disabled>
+              <option value="">All capabilities</option>
+            </select>
+          </div>
           <button type="button" id="clear-filters" disabled>Clear</button>
         </form>
         <div class="table-wrap">
@@ -75,6 +81,7 @@
                 <th scope="col">Model</th>
                 <th scope="col">Region</th>
                 <th scope="col">Direction</th>
+                <th scope="col">Capabilities</th>
                 <th scope="col">Unit</th>
                 <th scope="col">USD price</th>
                 <th scope="col" id="selected-price-heading">Selected price</th>
@@ -82,7 +89,7 @@
             </thead>
             <tbody id="price-rows">
               <tr>
-                <td colspan="6" class="empty">Loading price snapshots...</td>
+                <td colspan="7" class="empty">Loading price snapshots...</td>
               </tr>
             </tbody>
           </table>

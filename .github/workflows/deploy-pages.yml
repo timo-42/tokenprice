@@ -8,6 +8,7 @@ on:
   workflow_run:
     workflows:
       - Update data snapshots
+      - Update model capabilities
     types:
       - completed
 

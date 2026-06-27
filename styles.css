@@ -191,7 +191,7 @@ button:disabled {
 
 .filter-bar {
   display: grid;
-  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(150px, 1fr)) auto;
+  grid-template-columns: minmax(220px, 2fr) repeat(4, minmax(140px, 1fr)) auto;
   gap: 12px;
   align-items: end;
   margin-bottom: 14px;
@@ -212,7 +212,7 @@ button:disabled {
 
 table {
   width: 100%;
-  min-width: 760px;
+  min-width: 940px;
   border-collapse: collapse;
 }
 
@@ -250,6 +250,26 @@ tbody tr:nth-child(even) {
 
 .muted {
   color: var(--muted);
+}
+
+.capability-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 260px;
+}
+
+.capability-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f6f8fa;
+  color: #344054;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 3px 6px;
 }
 
 .empty {

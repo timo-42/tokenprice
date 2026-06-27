@@ -85,3 +85,14 @@ test("committed latest snapshot points at matching production snapshots", async 
   assert.equal(latest.fx.base, fx.base);
   assert.equal(latest.fx.stale, fx.stale);
 });
+
+test("committed capability catalog exposes documented tag metadata and models", async () => {
+  const catalog = JSON.parse(await readFile(path.resolve("data/model-capabilities.json"), "utf8"));
+
+  assert.equal(catalog.schemaVersion, 1);
+  assert.ok(catalog.modelCount > 0);
+  assert.ok(catalog.sources.length >= 3);
+  assert.ok(catalog.tags.some((tag) => tag.id === "reasoning" && tag.label === "Reasoning"));
+  assert.ok(catalog.tags.some((tag) => tag.id === "audio" && tag.label === "Audio"));
+  assert.ok(catalog.models.gpt5.capabilities.includes("reasoning"));
+});

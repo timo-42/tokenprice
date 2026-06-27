@@ -8,6 +8,7 @@ Build a GitHub Pages site that displays worldwide Azure AI Foundry token prices 
 - Fetch and store daily FX conversion rates (USD base) from an external converter API.
 - Persist snapshots in repo for static consumption by the Pages site.
 - Render a worldwide view of token prices with a currency selector.
+- Enrich model rows with best-effort capability metadata from MicrosoftDocs source files.
 - Display update metadata (pricing date + FX date) and fallback behavior when FX data is unavailable.
 
 ## Functional Requirements
@@ -49,15 +50,25 @@ Build a GitHub Pages site that displays worldwide Azure AI Foundry token prices 
   - USD price
   - user-selected currency price
 - Include currency selector populated from FX keys.
+- Include best-effort capability filters when `data/model-capabilities.json` is available.
 - Default display currency is USD.
 - Show conversion timestamp and price snapshot timestamp.
 
-### 4) Failure Behavior
+### 4) Capability Enrichment
+- A separate workflow should fetch MicrosoftDocs markdown sources from `MicrosoftDocs/azure-ai-docs`.
+- It should generate `data/model-capabilities.json` with conservative capability tags such as reasoning, audio, image, video, embeddings, tool calling, structured outputs, fine-tuning, realtime, and batch.
+- Capability enrichment is best-effort documentation metadata and must not block Azure pricing ingestion.
+- If the capability catalog is unavailable, the frontend must continue to render prices without capability filters.
+
+### 5) Failure Behavior
 - If FX fetch fails on ingestion day:
   - continue publishing prices.
   - use the previous FX snapshot and mark FX as stale.
 - If snapshot price fetch fails:
   - workflow should fail and report clearly (no partial/invalid data publish).
+- If capability enrichment fails:
+  - capability workflow should fail clearly.
+  - existing prices and Pages site should continue using the last committed capability catalog, or no catalog if none exists.
 
 ## Non-Functional Requirements
 - No runtime backend service.
@@ -80,4 +91,5 @@ Build a GitHub Pages site that displays worldwide Azure AI Foundry token prices 
 - UI renders and converts prices using a non-USD currency.
 - Changing currency updates all displayed converted values instantly.
 - Price list degrades to USD-only only when FX is unavailable and stale notice is shown.
+- Capability filters work when the generated catalog is present and disappear/degrade when it is unavailable.
 - GitHub Pages site works from committed snapshots without any server runtime.
