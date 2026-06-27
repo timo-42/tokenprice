@@ -96,6 +96,41 @@ select:focus {
   border-color: var(--accent);
 }
 
+input[type="search"] {
+  min-height: 40px;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  padding: 0 12px;
+}
+
+input[type="search"]:focus {
+  outline: 3px solid rgba(15, 108, 189, 0.2);
+  border-color: var(--accent);
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0 14px;
+}
+
+button:disabled {
+  border-color: var(--line-strong);
+  background: #eef2f6;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
 .status-panel {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -152,6 +187,20 @@ select:focus {
   color: var(--muted);
   font-size: 0.9rem;
   text-align: right;
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(150px, 1fr)) auto;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.filter-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
 }
 
 .table-wrap {
@@ -235,5 +284,9 @@ tbody tr:nth-child(even) {
 
   .table-heading p {
     text-align: left;
+  }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
   }
 }
