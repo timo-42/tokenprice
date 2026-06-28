@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-27T07:20:56.025Z",
-  "pricingDate": "2026-06-27",
+  "generatedAt": "2026-06-28T04:50:42.217Z",
+  "pricingDate": "2026-06-28",
   "prices": {
-    "file": "prices-2026-06-27.json",
+    "file": "prices-2026-06-28.json",
     "count": 23283
   },
   "fx": {
-    "file": "fx-2026-06-27.json",
+    "file": "fx-2026-06-28.json",
     "date": "2026-06-26",
     "base": "USD",
     "stale": false
   },
-  "priceSnapshot": "prices-2026-06-27.json",
-  "priceSnapshotPath": "data/prices-2026-06-27.json",
+  "priceSnapshot": "prices-2026-06-28.json",
+  "priceSnapshotPath": "data/prices-2026-06-28.json",
   "fxDate": "2026-06-26",
-  "fxSnapshot": "fx-2026-06-27.json",
-  "fxSnapshotPath": "data/fx-2026-06-27.json",
+  "fxSnapshot": "fx-2026-06-28.json",
+  "fxSnapshotPath": "data/fx-2026-06-28.json",
   "fxStale": false,
   "counts": {
     "prices": 23283,
