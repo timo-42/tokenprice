@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-27T18:45:13.441Z",
+  "generatedAt": "2026-07-09T06:04:08.368Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,26 +48,41 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 46920,
-      "models": 84
+      "bytes": 47981,
+      "models": 86
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 23113,
-      "models": 34
+      "bytes": 20554,
+      "models": 32
     },
     {
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 21219,
-      "models": 40
+      "bytes": 19483,
+      "models": 33
     }
   ],
-  "modelCount": 131,
+  "modelCount": 124,
   "models": {
+    "claudefable5": {
+      "modelName": "claude-fable-5",
+      "aliases": [
+        "claude-fable-5"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
     "claudehaiku45": {
       "modelName": "claude-haiku-4-5",
       "aliases": [
@@ -87,6 +102,21 @@
       "modelName": "claude-mythos-preview",
       "aliases": [
         "claude-mythos-preview"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
+    "claudemythos5": {
+      "modelName": "claude-mythos-5",
+      "aliases": [
+        "claude-mythos-5"
       ],
       "provider": "Anthropic",
       "capabilities": [
@@ -203,6 +233,21 @@
         "partners"
       ]
     },
+    "claudesonnet5": {
+      "modelName": "claude-sonnet-5",
+      "aliases": [
+        "claude-sonnet-5"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
     "codestral2501": {
       "modelName": "Codestral-2501",
       "aliases": [
@@ -245,32 +290,18 @@
         "azure-direct-others"
       ]
     },
-    "coherecommandr082024": {
-      "modelName": "Cohere-command-r-08-2024",
+    "coherecommandaplus052026": {
+      "modelName": "Cohere-command-a-plus-05-2026",
       "aliases": [
-        "Cohere-command-r-08-2024"
+        "Cohere-command-a-plus-05-2026"
       ],
       "provider": "Cohere",
       "capabilities": [
-        "structured-outputs",
+        "reasoning",
         "tool-calling"
       ],
       "sources": [
-        "partners"
-      ]
-    },
-    "coherecommandrplus082024": {
-      "modelName": "Cohere-command-r-plus-08-2024",
-      "aliases": [
-        "Cohere-command-r-plus-08-2024"
-      ],
-      "provider": "Cohere",
-      "capabilities": [
-        "structured-outputs",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
+        "azure-direct-others"
       ]
     },
     "cohereembedv3english": {
@@ -339,63 +370,6 @@
       ],
       "sources": [
         "azure-openai"
-      ]
-    },
-    "deepseekr1": {
-      "modelName": "DeepSeek-R1",
-      "aliases": [
-        "DeepSeek-R1"
-      ],
-      "provider": "DeepSeek",
-      "capabilities": [
-        "reasoning",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
-      ]
-    },
-    "deepseekr10528": {
-      "modelName": "DeepSeek-R1-0528",
-      "aliases": [
-        "DeepSeek-R1-0528"
-      ],
-      "provider": "DeepSeek",
-      "capabilities": [
-        "reasoning",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
-      ]
-    },
-    "deepseekv30324": {
-      "modelName": "DeepSeek-V3-0324",
-      "aliases": [
-        "DeepSeek-V3-0324"
-      ],
-      "provider": "DeepSeek",
-      "capabilities": [
-        "structured-outputs",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
-      ]
-    },
-    "deepseekv31": {
-      "modelName": "DeepSeek-V3.1",
-      "aliases": [
-        "DeepSeek-V3.1"
-      ],
-      "provider": "DeepSeek",
-      "capabilities": [
-        "reasoning",
-        "structured-outputs",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
       ]
     },
     "deepseekv32": {
@@ -1238,6 +1212,34 @@
         "azure-openai"
       ]
     },
+    "gptrealtime21": {
+      "modelName": "gpt-realtime-2.1",
+      "aliases": [
+        "gpt-realtime-2.1"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio",
+        "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gptrealtime21mini": {
+      "modelName": "gpt-realtime-2.1-mini",
+      "aliases": [
+        "gpt-realtime-2.1-mini"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio",
+        "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
     "gptrealtimemini": {
       "modelName": "gpt-realtime-mini",
       "aliases": [
@@ -1379,32 +1381,19 @@
         "azure-direct-others"
       ]
     },
-    "llama3211bvisioninstruct": {
-      "modelName": "Llama-3.2-11B-Vision-Instruct",
+    "kimik27code": {
+      "modelName": "Kimi-K2.7-Code",
       "aliases": [
-        "Llama-3.2-11B-Vision-Instruct"
+        "Kimi-K2.7-Code"
       ],
-      "provider": "Meta",
+      "provider": "Moonshot AI",
       "capabilities": [
         "image",
+        "reasoning",
         "tool-calling"
       ],
       "sources": [
-        "partners"
-      ]
-    },
-    "llama3290bvisioninstruct": {
-      "modelName": "Llama-3.2-90B-Vision-Instruct",
-      "aliases": [
-        "Llama-3.2-90B-Vision-Instruct"
-      ],
-      "provider": "Meta",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
+        "azure-direct-others"
       ]
     },
     "llama3370binstruct": {
@@ -1448,20 +1437,6 @@
         "partners"
       ]
     },
-    "maiimage2": {
-      "modelName": "MAI-Image-2",
-      "aliases": [
-        "MAI-Image-2"
-      ],
-      "provider": "Microsoft",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
-      ]
-    },
     "maiimage25": {
       "modelName": "MAI-Image-2.5",
       "aliases": [
@@ -1488,46 +1463,6 @@
       ],
       "sources": [
         "azure-direct-others"
-      ]
-    },
-    "maiimage2e": {
-      "modelName": "MAI-Image-2e",
-      "aliases": [
-        "MAI-Image-2e"
-      ],
-      "provider": "Microsoft",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "azure-direct-others"
-      ]
-    },
-    "metallama31405binstruct": {
-      "modelName": "Meta-Llama-3.1-405B-Instruct",
-      "aliases": [
-        "Meta-Llama-3.1-405B-Instruct"
-      ],
-      "provider": "Meta",
-      "capabilities": [
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
-      ]
-    },
-    "metallama318binstruct": {
-      "modelName": "Meta-Llama-3.1-8B-Instruct",
-      "aliases": [
-        "Meta-Llama-3.1-8B-Instruct"
-      ],
-      "provider": "Meta",
-      "capabilities": [
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
       ]
     },
     "ministral3b": {
@@ -1587,6 +1522,36 @@
       ],
       "sources": [
         "partners"
+      ]
+    },
+    "mistralmedium35": {
+      "modelName": "mistral-medium-3-5",
+      "aliases": [
+        "mistral-medium-3-5"
+      ],
+      "provider": "Mistral",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "mistralocr40": {
+      "modelName": "mistral-ocr-4-0",
+      "aliases": [
+        "mistral-ocr-4-0"
+      ],
+      "provider": "Mistral",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
       ]
     },
     "mistralsmall2503": {
@@ -1787,48 +1752,6 @@
         "azure-openai"
       ]
     },
-    "stablediffusion35large": {
-      "modelName": "Stable Diffusion 3.5 Large",
-      "aliases": [
-        "Stable Diffusion 3.5 Large"
-      ],
-      "provider": "Stability AI",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
-      ]
-    },
-    "stableimagecore": {
-      "modelName": "Stable Image Core",
-      "aliases": [
-        "Stable Image Core"
-      ],
-      "provider": "Stability AI",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
-      ]
-    },
-    "stableimageultra": {
-      "modelName": "Stable Image Ultra",
-      "aliases": [
-        "Stable Image Ultra"
-      ],
-      "provider": "Stability AI",
-      "capabilities": [
-        "image",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
-      ]
-    },
     "textembedding3large": {
       "modelName": "text-embedding-3-large",
       "aliases": [
@@ -1866,20 +1789,6 @@
       ],
       "sources": [
         "azure-openai"
-      ]
-    },
-    "timegen1": {
-      "modelName": "TimeGEN-1",
-      "aliases": [
-        "TimeGEN-1"
-      ],
-      "provider": "Nixtla",
-      "capabilities": [
-        "structured-outputs",
-        "tool-calling"
-      ],
-      "sources": [
-        "partners"
       ]
     },
     "tsuzumi7b": {
