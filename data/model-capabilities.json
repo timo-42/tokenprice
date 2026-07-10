@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-09T06:04:08.368Z",
+  "generatedAt": "2026-07-10T06:04:03.986Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,25 +48,25 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 47981,
-      "models": 86
+      "bytes": 48586,
+      "models": 88
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 20554,
+      "bytes": 21126,
       "models": 32
     },
     {
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 19483,
+      "bytes": 19487,
       "models": 33
     }
   ],
-  "modelCount": 124,
+  "modelCount": 126,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1244,6 +1244,34 @@
       "modelName": "gpt-realtime-mini",
       "aliases": [
         "gpt-realtime-mini"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio",
+        "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gptrealtimetranslate": {
+      "modelName": "gpt-realtime-translate",
+      "aliases": [
+        "gpt-realtime-translate"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio",
+        "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gptrealtimewhisper": {
+      "modelName": "gpt-realtime-whisper",
+      "aliases": [
+        "gpt-realtime-whisper"
       ],
       "provider": "Audio models",
       "capabilities": [
