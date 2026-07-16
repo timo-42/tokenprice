@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-10T06:04:03.986Z",
+  "generatedAt": "2026-07-16T05:34:53.590Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,25 +48,25 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 48586,
-      "models": 88
+      "bytes": 50533,
+      "models": 92
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 21126,
+      "bytes": 20534,
       "models": 32
     },
     {
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 19487,
+      "bytes": 24614,
       "models": 33
     }
   ],
-  "modelCount": 126,
+  "modelCount": 129,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -948,6 +948,54 @@
         "gpt-5.5"
       ],
       "provider": "GPT-5.5",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt56luna": {
+      "modelName": "gpt-5.6-luna",
+      "aliases": [
+        "gpt-5.6-luna"
+      ],
+      "provider": "GPT-5.6",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt56sol": {
+      "modelName": "gpt-5.6-sol",
+      "aliases": [
+        "gpt-5.6-sol"
+      ],
+      "provider": "GPT-5.6",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt56terra": {
+      "modelName": "gpt-5.6-terra",
+      "aliases": [
+        "gpt-5.6-terra"
+      ],
+      "provider": "GPT-5.6",
       "capabilities": [
         "image",
         "reasoning",
