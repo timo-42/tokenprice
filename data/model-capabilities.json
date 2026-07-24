@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-17T05:35:09.807Z",
+  "generatedAt": "2026-07-24T05:37:51.018Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,15 +48,15 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 50861,
+      "bytes": 52645,
       "models": 92
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 20534,
-      "models": 32
+      "bytes": 21622,
+      "models": 33
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 33
     }
   ],
-  "modelCount": 129,
+  "modelCount": 130,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1531,6 +1531,20 @@
       "modelName": "MAI-Image-2.5-Flash",
       "aliases": [
         "MAI-Image-2.5-Flash"
+      ],
+      "provider": "Microsoft",
+      "capabilities": [
+        "image",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "maiimage25pro": {
+      "modelName": "MAI-Image-2.5-Pro",
+      "aliases": [
+        "MAI-Image-2.5-Pro"
       ],
       "provider": "Microsoft",
       "capabilities": [
