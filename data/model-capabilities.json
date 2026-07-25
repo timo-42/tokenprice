@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T05:37:51.018Z",
+  "generatedAt": "2026-07-25T05:35:59.863Z",
   "tags": [
     {
       "id": "reasoning",
@@ -62,11 +62,11 @@
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 24614,
-      "models": 33
+      "bytes": 25541,
+      "models": 34
     }
   ],
-  "modelCount": 130,
+  "modelCount": 131,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -192,6 +192,21 @@
       "modelName": "claude-opus-4-8",
       "aliases": [
         "claude-opus-4-8"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
+    "claudeopus5": {
+      "modelName": "claude-opus-5",
+      "aliases": [
+        "claude-opus-5"
       ],
       "provider": "Anthropic",
       "capabilities": [
