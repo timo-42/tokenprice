@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T05:36:12.926Z",
+  "generatedAt": "2026-07-31T05:49:44.345Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,8 +48,8 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 52645,
-      "models": 92
+      "bytes": 53387,
+      "models": 94
     },
     {
       "id": "azure-direct-others",
@@ -66,7 +66,7 @@
       "models": 34
     }
   ],
-  "modelCount": 131,
+  "modelCount": 133,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1190,6 +1190,20 @@
         "azure-openai"
       ]
     },
+    "gptlivetranscribe": {
+      "modelName": "gpt-live-transcribe",
+      "aliases": [
+        "gpt-live-transcribe"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio",
+        "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
     "gptoss": {
       "modelName": "gpt-oss",
       "aliases": [
@@ -1340,6 +1354,19 @@
       "capabilities": [
         "audio",
         "realtime"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpttranscribe": {
+      "modelName": "gpt-transcribe",
+      "aliases": [
+        "gpt-transcribe"
+      ],
+      "provider": "Audio models",
+      "capabilities": [
+        "audio"
       ],
       "sources": [
         "azure-openai"
