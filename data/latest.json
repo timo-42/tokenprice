@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-30T04:20:54.711Z",
-  "pricingDate": "2026-07-30",
+  "generatedAt": "2026-07-31T04:27:19.313Z",
+  "pricingDate": "2026-07-31",
   "prices": {
-    "file": "prices-2026-07-30.json",
+    "file": "prices-2026-07-31.json",
     "count": 26190
   },
   "fx": {
-    "file": "fx-2026-07-30.json",
-    "date": "2026-07-29",
+    "file": "fx-2026-07-31.json",
+    "date": "2026-07-30",
     "base": "USD",
     "stale": false
   },
-  "priceSnapshot": "prices-2026-07-30.json",
-  "priceSnapshotPath": "data/prices-2026-07-30.json",
-  "fxDate": "2026-07-29",
-  "fxSnapshot": "fx-2026-07-30.json",
-  "fxSnapshotPath": "data/fx-2026-07-30.json",
+  "priceSnapshot": "prices-2026-07-31.json",
+  "priceSnapshotPath": "data/prices-2026-07-31.json",
+  "fxDate": "2026-07-30",
+  "fxSnapshot": "fx-2026-07-31.json",
+  "fxSnapshotPath": "data/fx-2026-07-31.json",
   "fxStale": false,
   "counts": {
     "prices": 26190,
@@ -34,9 +34,5 @@
       "name": "Frankfurter",
       "url": "https://api.frankfurter.app/latest?from=USD"
     }
-  },
-  "retentionDeleted": [
-    "fx-2026-06-30.json",
-    "prices-2026-06-30.json"
-  ]
+  }
 }
