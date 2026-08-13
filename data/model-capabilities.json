@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T05:17:01.487Z",
+  "generatedAt": "2026-08-13T05:18:22.828Z",
   "tags": [
     {
       "id": "reasoning",
@@ -55,8 +55,8 @@
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 19916,
-      "models": 33
+      "bytes": 20649,
+      "models": 34
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 33
     }
   ],
-  "modelCount": 132,
+  "modelCount": 133,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1576,6 +1576,20 @@
       "provider": "Microsoft",
       "capabilities": [
         "image",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "maithinking1": {
+      "modelName": "MAI-Thinking-1",
+      "aliases": [
+        "MAI-Thinking-1"
+      ],
+      "provider": "Microsoft",
+      "capabilities": [
+        "reasoning",
         "tool-calling"
       ],
       "sources": [
