@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-16T04:53:20.041Z",
+  "generatedAt": "2026-08-20T04:55:03.567Z",
   "tags": [
     {
       "id": "reasoning",
@@ -55,8 +55,8 @@
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 20649,
-      "models": 34
+      "bytes": 20938,
+      "models": 35
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 33
     }
   ],
-  "modelCount": 133,
+  "modelCount": 134,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -406,6 +406,21 @@
       "modelName": "DeepSeek-V4-Flash",
       "aliases": [
         "DeepSeek-V4-Flash"
+      ],
+      "provider": "DeepSeek",
+      "capabilities": [
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "deepseekv4flash0731": {
+      "modelName": "DeepSeek-V4-Flash-0731",
+      "aliases": [
+        "DeepSeek-V4-Flash-0731"
       ],
       "provider": "DeepSeek",
       "capabilities": [
