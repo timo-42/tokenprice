@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-31T04:27:19.313Z",
-  "pricingDate": "2026-07-31",
+  "generatedAt": "2026-08-21T03:35:54.228Z",
+  "pricingDate": "2026-08-21",
   "prices": {
-    "file": "prices-2026-07-31.json",
-    "count": 26190
+    "file": "prices-2026-08-21.json",
+    "count": 27477
   },
   "fx": {
-    "file": "fx-2026-07-31.json",
-    "date": "2026-07-30",
+    "file": "fx-2026-08-21.json",
+    "date": "2026-08-20",
     "base": "USD",
     "stale": false
   },
-  "priceSnapshot": "prices-2026-07-31.json",
-  "priceSnapshotPath": "data/prices-2026-07-31.json",
-  "fxDate": "2026-07-30",
-  "fxSnapshot": "fx-2026-07-31.json",
-  "fxSnapshotPath": "data/fx-2026-07-31.json",
+  "priceSnapshot": "prices-2026-08-21.json",
+  "priceSnapshotPath": "data/prices-2026-08-21.json",
+  "fxDate": "2026-08-20",
+  "fxSnapshot": "fx-2026-08-21.json",
+  "fxSnapshotPath": "data/fx-2026-08-21.json",
   "fxStale": false,
   "counts": {
-    "prices": 26190,
-    "pricePagesScanned": 990,
-    "priceSourceRowsScanned": 989687,
+    "prices": 27477,
+    "pricePagesScanned": 1000,
+    "priceSourceRowsScanned": 999912,
     "currencies": 30
   },
   "sources": {
@@ -34,5 +34,43 @@
       "name": "Frankfurter",
       "url": "https://api.frankfurter.app/latest?from=USD"
     }
-  }
+  },
+  "retentionDeleted": [
+    "fx-2026-07-04.json",
+    "fx-2026-07-05.json",
+    "fx-2026-07-06.json",
+    "fx-2026-07-07.json",
+    "fx-2026-07-08.json",
+    "fx-2026-07-09.json",
+    "fx-2026-07-10.json",
+    "fx-2026-07-11.json",
+    "fx-2026-07-12.json",
+    "fx-2026-07-13.json",
+    "fx-2026-07-14.json",
+    "fx-2026-07-15.json",
+    "fx-2026-07-17.json",
+    "fx-2026-07-18.json",
+    "fx-2026-07-19.json",
+    "fx-2026-07-20.json",
+    "fx-2026-07-21.json",
+    "fx-2026-07-22.json",
+    "prices-2026-07-04.json",
+    "prices-2026-07-05.json",
+    "prices-2026-07-06.json",
+    "prices-2026-07-07.json",
+    "prices-2026-07-08.json",
+    "prices-2026-07-09.json",
+    "prices-2026-07-10.json",
+    "prices-2026-07-11.json",
+    "prices-2026-07-12.json",
+    "prices-2026-07-13.json",
+    "prices-2026-07-14.json",
+    "prices-2026-07-15.json",
+    "prices-2026-07-17.json",
+    "prices-2026-07-18.json",
+    "prices-2026-07-19.json",
+    "prices-2026-07-20.json",
+    "prices-2026-07-21.json",
+    "prices-2026-07-22.json"
+  ]
 }

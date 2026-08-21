@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-21T03:35:54.228Z",
+  "date": "2026-08-20",
+  "base": "USD",
+  "stale": false,
+  "source": {
+    "name": "Frankfurter",
+    "url": "https://api.frankfurter.app/latest?from=USD"
+  },
+  "rates": {
+    "AUD": 1.4072,
+    "BRL": 5.1936,
+    "CAD": 1.377,
+    "CHF": 0.79899,
+    "CNY": 6.7236,
+    "CZK": 20.677,
+    "DKK": 6.4,
+    "EUR": 0.85609,
+    "GBP": 0.73388,
+    "HKD": 7.8438,
+    "HUF": 312.56,
+    "IDR": 17797,
+    "ILS": 2.992,
+    "INR": 95.71,
+    "ISK": 121.56,
+    "JPY": 158.76,
+    "KRW": 1396.35,
+    "MXN": 16.9906,
+    "MYR": 4.044,
+    "NOK": 9.3335,
+    "NZD": 1.6828,
+    "PHP": 61.728,
+    "PLN": 3.6973,
+    "RON": 4.4958,
+    "SEK": 9.4919,
+    "SGD": 1.2722,
+    "THB": 32.915,
+    "TRY": 47.953,
+    "USD": 1,
+    "ZAR": 16.174
+  }
+}
