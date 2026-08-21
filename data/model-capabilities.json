@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T04:55:03.567Z",
+  "generatedAt": "2026-08-21T04:55:11.454Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,7 +48,7 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 54166,
+      "bytes": 54544,
       "models": 94
     },
     {
@@ -1143,6 +1143,7 @@
       ],
       "provider": "Azure OpenAI in Microsoft Foundry models",
       "capabilities": [
+        "reasoning",
         "structured-outputs",
         "tool-calling"
       ],
