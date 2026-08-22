@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T03:35:54.228Z",
-  "pricingDate": "2026-08-21",
+  "generatedAt": "2026-08-22T03:30:37.966Z",
+  "pricingDate": "2026-08-22",
   "prices": {
-    "file": "prices-2026-08-21.json",
-    "count": 27477
+    "file": "prices-2026-08-22.json",
+    "count": 27478
   },
   "fx": {
-    "file": "fx-2026-08-21.json",
-    "date": "2026-08-20",
+    "file": "fx-2026-08-22.json",
+    "date": "2026-08-21",
     "base": "USD",
     "stale": false
   },
-  "priceSnapshot": "prices-2026-08-21.json",
-  "priceSnapshotPath": "data/prices-2026-08-21.json",
-  "fxDate": "2026-08-20",
-  "fxSnapshot": "fx-2026-08-21.json",
-  "fxSnapshotPath": "data/fx-2026-08-21.json",
+  "priceSnapshot": "prices-2026-08-22.json",
+  "priceSnapshotPath": "data/prices-2026-08-22.json",
+  "fxDate": "2026-08-21",
+  "fxSnapshot": "fx-2026-08-22.json",
+  "fxSnapshotPath": "data/fx-2026-08-22.json",
   "fxStale": false,
   "counts": {
-    "prices": 27477,
+    "prices": 27478,
     "pricePagesScanned": 1000,
-    "priceSourceRowsScanned": 999912,
+    "priceSourceRowsScanned": 999817,
     "currencies": 30
   },
   "sources": {
@@ -36,41 +36,7 @@
     }
   },
   "retentionDeleted": [
-    "fx-2026-07-04.json",
-    "fx-2026-07-05.json",
-    "fx-2026-07-06.json",
-    "fx-2026-07-07.json",
-    "fx-2026-07-08.json",
-    "fx-2026-07-09.json",
-    "fx-2026-07-10.json",
-    "fx-2026-07-11.json",
-    "fx-2026-07-12.json",
-    "fx-2026-07-13.json",
-    "fx-2026-07-14.json",
-    "fx-2026-07-15.json",
-    "fx-2026-07-17.json",
-    "fx-2026-07-18.json",
-    "fx-2026-07-19.json",
-    "fx-2026-07-20.json",
-    "fx-2026-07-21.json",
-    "fx-2026-07-22.json",
-    "prices-2026-07-04.json",
-    "prices-2026-07-05.json",
-    "prices-2026-07-06.json",
-    "prices-2026-07-07.json",
-    "prices-2026-07-08.json",
-    "prices-2026-07-09.json",
-    "prices-2026-07-10.json",
-    "prices-2026-07-11.json",
-    "prices-2026-07-12.json",
-    "prices-2026-07-13.json",
-    "prices-2026-07-14.json",
-    "prices-2026-07-15.json",
-    "prices-2026-07-17.json",
-    "prices-2026-07-18.json",
-    "prices-2026-07-19.json",
-    "prices-2026-07-20.json",
-    "prices-2026-07-21.json",
-    "prices-2026-07-22.json"
+    "fx-2026-07-23.json",
+    "prices-2026-07-23.json"
   ]
 }
