@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T04:55:45.370Z",
+  "generatedAt": "2026-08-27T07:03:42.795Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,15 +48,15 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 54566,
+      "bytes": 54559,
       "models": 94
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 20938,
-      "models": 35
+      "bytes": 21279,
+      "models": 36
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 33
     }
   ],
-  "modelCount": 134,
+  "modelCount": 135,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1377,7 +1377,7 @@
       "aliases": [
         "grok-4"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "tool-calling"
       ],
@@ -1390,7 +1390,7 @@
       "aliases": [
         "grok-4.1-fast-non-reasoning"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "image",
         "reasoning",
@@ -1405,7 +1405,7 @@
       "aliases": [
         "grok-4.1-fast-reasoning"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "image",
         "reasoning",
@@ -1420,7 +1420,7 @@
       "aliases": [
         "grok-4-20-non-reasoning"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "reasoning",
         "tool-calling"
@@ -1434,7 +1434,7 @@
       "aliases": [
         "grok-4-20-reasoning"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "reasoning",
         "tool-calling"
@@ -1448,8 +1448,23 @@
       "aliases": [
         "grok-4.3"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "grok46": {
+      "modelName": "grok-4.6",
+      "aliases": [
+        "grok-4.6"
+      ],
+      "provider": "SpaceXAI",
+      "capabilities": [
+        "image",
+        "structured-outputs",
         "tool-calling"
       ],
       "sources": [
@@ -1461,7 +1476,7 @@
       "aliases": [
         "grok-code-fast-1"
       ],
-      "provider": "xAI",
+      "provider": "SpaceXAI",
       "capabilities": [
         "tool-calling"
       ],
