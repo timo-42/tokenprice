@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T07:03:42.795Z",
+  "generatedAt": "2026-08-28T07:07:05.322Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,15 +48,15 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 54559,
-      "models": 94
+      "bytes": 54530,
+      "models": 96
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 21279,
-      "models": 36
+      "bytes": 21569,
+      "models": 37
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 33
     }
   ],
-  "modelCount": 135,
+  "modelCount": 138,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -329,6 +329,20 @@
       ],
       "sources": [
         "partners"
+      ]
+    },
+    "cohereparsev5": {
+      "modelName": "Cohere-parse-v5",
+      "aliases": [
+        "Cohere-parse-v5"
+      ],
+      "provider": "Cohere",
+      "capabilities": [
+        "image",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
       ]
     },
     "coherererankv40fast": {
@@ -1190,6 +1204,19 @@
         "azure-openai"
       ]
     },
+    "gptimage2": {
+      "modelName": "gpt-image-2",
+      "aliases": [
+        "gpt-image-2"
+      ],
+      "provider": "Image generation models",
+      "capabilities": [
+        "image"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
     "gptlivetranscribe": {
       "modelName": "gpt-live-transcribe",
       "aliases": [
@@ -1902,10 +1929,22 @@
     "sora": {
       "modelName": "Sora",
       "aliases": [
-        "Sora",
-        "sora"
+        "Sora"
       ],
       "provider": "Azure OpenAI in Microsoft Foundry models",
+      "capabilities": [
+        "video"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "sora2": {
+      "modelName": "sora-2",
+      "aliases": [
+        "sora-2"
+      ],
+      "provider": "Video generation models",
       "capabilities": [
         "video"
       ],
