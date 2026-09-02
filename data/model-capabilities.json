@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-29T04:43:56.680Z",
+  "generatedAt": "2026-09-02T04:47:32.731Z",
   "tags": [
     {
       "id": "reasoning",
@@ -62,16 +62,31 @@
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 25583,
-      "models": 33
+      "bytes": 27504,
+      "models": 35
     }
   ],
-  "modelCount": 138,
+  "modelCount": 140,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
       "aliases": [
         "claude-fable-5"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
+    "claudefable51": {
+      "modelName": "claude-fable-5-1",
+      "aliases": [
+        "claude-fable-5-1"
       ],
       "provider": "Anthropic",
       "capabilities": [
@@ -117,6 +132,21 @@
       "modelName": "claude-mythos-5",
       "aliases": [
         "claude-mythos-5"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
+    "claudemythos51": {
+      "modelName": "claude-mythos-5-1",
+      "aliases": [
+        "claude-mythos-5-1"
       ],
       "provider": "Anthropic",
       "capabilities": [
