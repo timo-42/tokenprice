@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-31T03:33:40.847Z",
-  "pricingDate": "2026-08-31",
+  "generatedAt": "2026-09-05T03:29:43.687Z",
+  "pricingDate": "2026-09-05",
   "prices": {
-    "file": "prices-2026-08-31.json",
-    "count": 27478
+    "file": "prices-2026-09-05.json",
+    "count": 28564
   },
   "fx": {
-    "file": "fx-2026-08-31.json",
-    "date": "2026-08-28",
+    "file": "fx-2026-09-05.json",
+    "date": "2026-09-04",
     "base": "USD",
     "stale": false
   },
-  "priceSnapshot": "prices-2026-08-31.json",
-  "priceSnapshotPath": "data/prices-2026-08-31.json",
-  "fxDate": "2026-08-28",
-  "fxSnapshot": "fx-2026-08-31.json",
-  "fxSnapshotPath": "data/fx-2026-08-31.json",
+  "priceSnapshot": "prices-2026-09-05.json",
+  "priceSnapshotPath": "data/prices-2026-09-05.json",
+  "fxDate": "2026-09-04",
+  "fxSnapshot": "fx-2026-09-05.json",
+  "fxSnapshotPath": "data/fx-2026-09-05.json",
   "fxStale": false,
   "counts": {
-    "prices": 27478,
-    "pricePagesScanned": 1000,
-    "priceSourceRowsScanned": 999817,
+    "prices": 28564,
+    "pricePagesScanned": 998,
+    "priceSourceRowsScanned": 997096,
     "currencies": 30
   },
   "sources": {
