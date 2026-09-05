@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-02T04:47:32.731Z",
+  "generatedAt": "2026-09-05T04:44:49.229Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,15 +48,15 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 55047,
-      "models": 96
+      "bytes": 57897,
+      "models": 98
     },
     {
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 21569,
-      "models": 37
+      "bytes": 23677,
+      "models": 39
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 35
     }
   ],
-  "modelCount": 140,
+  "modelCount": 143,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1140,6 +1140,22 @@
         "azure-openai"
       ]
     },
+    "gpt6astra": {
+      "modelName": "gpt-6-astra",
+      "aliases": [
+        "gpt-6-astra"
+      ],
+      "provider": "GPT-6",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
     "gptaudio": {
       "modelName": "gpt-audio",
       "aliases": [
@@ -1659,6 +1675,34 @@
       "modelName": "MAI-Image-2.5-Pro",
       "aliases": [
         "MAI-Image-2.5-Pro"
+      ],
+      "provider": "Microsoft",
+      "capabilities": [
+        "image",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "maiimage26": {
+      "modelName": "MAI-Image-2.6",
+      "aliases": [
+        "MAI-Image-2.6"
+      ],
+      "provider": "Microsoft",
+      "capabilities": [
+        "image",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "maiimage26flash": {
+      "modelName": "MAI-Image-2.6-Flash",
+      "aliases": [
+        "MAI-Image-2.6-Flash"
       ],
       "provider": "Microsoft",
       "capabilities": [
