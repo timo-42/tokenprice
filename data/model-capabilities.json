@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-11T04:46:41.102Z",
+  "generatedAt": "2026-09-17T04:48:16.911Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,7 +48,7 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 58073,
+      "bytes": 57540,
       "models": 100
     },
     {
