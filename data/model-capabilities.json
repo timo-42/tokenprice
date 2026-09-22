@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-17T04:48:16.911Z",
+  "generatedAt": "2026-09-22T04:47:52.529Z",
   "tags": [
     {
       "id": "reasoning",
@@ -55,7 +55,7 @@
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 23682,
+      "bytes": 23713,
       "models": 39
     },
     {
