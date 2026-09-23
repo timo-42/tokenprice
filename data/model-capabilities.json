@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T04:47:52.529Z",
+  "generatedAt": "2026-09-23T04:48:23.979Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,8 +48,8 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 57540,
-      "models": 100
+      "bytes": 58788,
+      "models": 102
     },
     {
       "id": "azure-direct-others",
@@ -62,11 +62,11 @@
       "id": "partners",
       "name": "Foundry Models from partners and community",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-partners.md",
-      "bytes": 27504,
-      "models": 35
+      "bytes": 28421,
+      "models": 36
     }
   ],
-  "modelCount": 145,
+  "modelCount": 148,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -222,6 +222,21 @@
       "modelName": "claude-opus-5",
       "aliases": [
         "claude-opus-5"
+      ],
+      "provider": "Anthropic",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "partners"
+      ]
+    },
+    "claudeopus55": {
+      "modelName": "claude-opus-5-5",
+      "aliases": [
+        "claude-opus-5-5"
       ],
       "provider": "Anthropic",
       "capabilities": [
@@ -1144,6 +1159,38 @@
       "modelName": "gpt-6-astra",
       "aliases": [
         "gpt-6-astra"
+      ],
+      "provider": "GPT-6",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt6luna": {
+      "modelName": "gpt-6-luna",
+      "aliases": [
+        "gpt-6-luna"
+      ],
+      "provider": "GPT-6",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt6sol": {
+      "modelName": "gpt-6-sol",
+      "aliases": [
+        "gpt-6-sol"
       ],
       "provider": "GPT-6",
       "capabilities": [
