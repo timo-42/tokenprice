@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T04:50:29.458Z",
+  "generatedAt": "2026-09-30T04:51:14.732Z",
   "tags": [
     {
       "id": "reasoning",
@@ -48,8 +48,8 @@
       "id": "azure-openai",
       "name": "Azure OpenAI in Microsoft Foundry Models",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/openai/includes/models-azure-direct-openai.md",
-      "bytes": 58905,
-      "models": 102
+      "bytes": 60074,
+      "models": 104
     },
     {
       "id": "azure-direct-others",
@@ -66,7 +66,7 @@
       "models": 37
     }
   ],
-  "modelCount": 149,
+  "modelCount": 150,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1165,6 +1165,22 @@
         "image",
         "reasoning",
         "structured-outputs"
+      ],
+      "sources": [
+        "azure-openai"
+      ]
+    },
+    "gpt61sol": {
+      "modelName": "gpt-6.1-sol",
+      "aliases": [
+        "gpt-6.1-sol"
+      ],
+      "provider": "GPT-6.1",
+      "capabilities": [
+        "image",
+        "reasoning",
+        "structured-outputs",
+        "tool-calling"
       ],
       "sources": [
         "azure-openai"
