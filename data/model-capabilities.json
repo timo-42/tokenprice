@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T04:51:14.732Z",
+  "generatedAt": "2026-10-07T04:52:27.421Z",
   "tags": [
     {
       "id": "reasoning",
@@ -55,8 +55,8 @@
       "id": "azure-direct-others",
       "name": "Other Foundry Models sold by Azure",
       "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/foundry/foundry-models/includes/models-azure-direct-others.md",
-      "bytes": 23713,
-      "models": 39
+      "bytes": 24495,
+      "models": 40
     },
     {
       "id": "partners",
@@ -66,7 +66,7 @@
       "models": 37
     }
   ],
-  "modelCount": 150,
+  "modelCount": 151,
   "models": {
     "claudefable5": {
       "modelName": "claude-fable-5",
@@ -1637,6 +1637,21 @@
       "modelName": "grok-4.6",
       "aliases": [
         "grok-4.6"
+      ],
+      "provider": "SpaceXAI",
+      "capabilities": [
+        "image",
+        "structured-outputs",
+        "tool-calling"
+      ],
+      "sources": [
+        "azure-direct-others"
+      ]
+    },
+    "grok47": {
+      "modelName": "grok-4.7",
+      "aliases": [
+        "grok-4.7"
       ],
       "provider": "SpaceXAI",
       "capabilities": [
